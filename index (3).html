@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lua Uñas Salón Spa – Monterrey</title>
+ <link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pink-deep: #c87fa0;
+    --pink-mid: #e0a8c2;
+    --pink-light: #f5dce8;
+    --pink-pale: #fdf0f5;
+    --gray-dark: #4a4a4a;
+    --gray-mid: #7a7a7a;
+    --gray-light: #e8e4e1;
+    --cream: #faf8f6;
+    --white: #ffffff;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--gray-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(253,240,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,127,160,0.15);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .nav-logo img {
+    height: 48px; width: 48px; object-fit: contain;
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--pink-deep); }
+
+  .nav-cta {
+    background: var(--pink-deep);
+    color: white !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em;
+    transition: background 0.3s !important;
+  }
+
+  .nav-cta:hover { background: #b06a8a !important; color: white !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 5rem 6rem;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 2rem; height: 1px;
+    background: var(--pink-deep);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--gray-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--pink-deep);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--gray-mid);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gray-dark);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #2a2a2a;
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    color: var(--gray-dark);
+    padding: 1rem 0;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray-dark);
+    transition: color 0.3s, border-color 0.3s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    color: var(--pink-deep);
+    border-color: var(--pink-deep);
+  }
+
+  .hero-right {
+    height: 100vh;
+    position: relative;
+    background: var(--pink-pale);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-visual-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fdf0f5 0%, #f5dce8 50%, #e0a8c2 100%);
+  }
+
+  .hero-logo-large {
+    position: relative; z-index: 2;
+    width: 340px; height: 340px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 60px rgba(200,127,160,0.3));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+
+  .hero-badge {
+    position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 8px 40px rgba(200,127,160,0.2);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .badge-stars {
+    color: var(--pink-deep);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-text {
+    font-size: 0.75rem;
+    color: var(--gray-mid);
+    line-height: 1.4;
+  }
+
+  .badge-score {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: ''; display: block; width: 1.5rem; height: 1px;
+    background: var(--pink-deep);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--gray-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--pink-deep);
+  }
+
+  /* ─── QUOTE STRIP ─── */
+  .quote-strip {
+    background: var(--gray-dark);
+    padding: 3rem 6rem;
+    text-align: center;
+  }
+
+  .quote-strip blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--pink-light);
+    letter-spacing: 0.02em;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .quote-strip cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    font-style: normal;
+  }
+
+  /* ─── SERVICES ─── */
+  #servicios {
+    background: var(--white);
+    padding: 6rem 6rem;
+  }
+
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--gray-light);
+    border: 1.5px solid var(--gray-light);
+    border-radius: 1.2rem;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card:hover { background: var(--pink-pale); }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+    margin-bottom: 0.6rem;
+  }
+
+  .service-desc {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--gray-mid);
+  }
+
+  /* ─── REVIEWS ─── */
+  #opiniones {
+    background: var(--cream);
+    padding: 6rem 6rem;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(200,127,160,0.12);
+    transition: box-shadow 0.3s;
+  }
+
+  .review-card:hover {
+    box-shadow: 0 8px 40px rgba(200,127,160,0.15);
+  }
+
+  .review-stars {
+    color: var(--pink-deep);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .review-text {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--gray-dark);
+    margin-bottom: 1.2rem;
+  }
+
+  .review-author {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  /* ─── INFO / HORARIO ─── */
+  #info {
+    background: var(--pink-pale);
+    padding: 6rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .hours-table {
+    margin-top: 2rem;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid rgba(200,127,160,0.15);
+  }
+
+  .hours-table td {
+    padding: 0.8rem 0;
+    font-size: 0.88rem;
+    color: var(--gray-dark);
+  }
+
+  .hours-table td:first-child {
+    font-weight: 400;
+    color: var(--gray-mid);
+    text-transform: capitalize;
+  }
+
+  .hours-table td:last-child {
+    text-align: right;
+    font-weight: 400;
+  }
+
+  .hours-table .closed td {
+    color: var(--pink-mid);
+  }
+
+  .contact-items {
+    margin-top: 2rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+
+  .contact-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid rgba(200,127,160,0.25);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .contact-detail {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--gray-mid);
+  }
+
+  .contact-detail strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+  }
+
+  .contact-detail a {
+    color: inherit; text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-detail a:hover { color: var(--pink-deep); }
+
+  /* ─── SOCIAL / CTA ─── */
+  #reservar {
+    background: var(--gray-dark);
+    padding: 6rem;
+    text-align: center;
+  }
+
+  #reservar .section-label::before { background: var(--pink-mid); }
+
+  #reservar .section-label {
+    color: var(--pink-mid);
+    justify-content: center;
+  }
+
+  #reservar .section-title {
+    color: white;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  #reservar p {
+    font-size: 0.9rem;
+    color: var(--gray-mid);
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-buttons {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+
+  .btn-whatsapp:hover { background: #1ab350; transform: translateY(-2px); }
+
+  .btn-light {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.25);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+    display: inline-block;
+  }
+
+  .btn-light:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .social-links {
+    display: flex; justify-content: center; gap: 1.5rem;
+  }
+
+  .social-link {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: var(--gray-mid);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .social-link:hover { color: var(--pink-light); border-color: rgba(255,255,255,0.2); }
+
+  /* ─── MAP ─── */
+  #ubicacion {
+    height: 400px;
+    background: var(--gray-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #ubicacion iframe {
+    width: 100%; height: 100%;
+    border: none;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #2a2a2a;
+    padding: 3rem 6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--pink-light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--pink-mid);
+  }
+
+  /* ─── FLOATING WA ─── */
+  .floating-wa {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 200;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.45);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse-wa 2.5s ease-in-out infinite;
+  }
+
+  .floating-wa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 32px rgba(37,211,102,0.6);
+    animation: none;
+  }
+
+  .floating-wa svg { width: 26px; height: 26px; fill: white; }
+
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 4px 24px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 4px 36px rgba(37,211,102,0.7); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    .hero-right { height: 55vw; min-height: 280px; }
+    .hero-logo-large { width: 200px; height: 200px; }
+    section { padding: 4rem 1.5rem; }
+    #servicios, #opiniones, #info, #reservar, footer {
+      padding: 4rem 1.5rem;
+    }
+    .services-header { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    #info { grid-template-columns: 1fr; gap: 3rem; }
+    .quote-strip { padding: 2.5rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+  }
+
+  /* ─── RESERVACIONES ─── */
+  #reservaciones {
+    background: var(--white);
+    padding: 6rem 6rem;
+  }
+
+  .reservaciones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .reserva-form-box {
+    background: var(--pink-pale);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    border: 1px solid rgba(200,127,160,0.2);
+  }
+
+  .reserva-form-box h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--gray-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .reserva-form-box p.form-sub {
+    font-size: 0.82rem;
+    color: var(--gray-mid);
+    margin-bottom: 1.8rem;
+    font-weight: 300;
+  }
+
+  .form-field {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(200,127,160,0.3);
+    border-radius: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--gray-dark);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus {
+    border-color: var(--pink-deep);
+    box-shadow: 0 0 0 3px rgba(200,127,160,0.12);
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: '▾';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--pink-deep);
+    pointer-events: none;
+    font-size: 0.9rem;
+  }
+
+  .horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .hora-btn {
+    padding: 0.6rem 0.4rem;
+    border: 1px solid rgba(200,127,160,0.3);
+    border-radius: 0.5rem;
+    background: white;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--gray-dark);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .hora-btn:hover:not(.ocupada):not(.selected) {
+    background: var(--pink-light);
+    border-color: var(--pink-deep);
+  }
+
+  .hora-btn.selected {
+    background: var(--pink-deep);
+    color: white;
+    border-color: var(--pink-deep);
+  }
+
+  .hora-btn.ocupada {
+    background: #f5f5f5;
+    color: #bbb;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    border-color: #e5e5e5;
+  }
+
+  .btn-reservar {
+    width: 100%;
+    margin-top: 1.5rem;
+    background: var(--gray-dark);
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-reservar:hover {
+    background: #2a2a2a;
+    transform: translateY(-2px);
+  }
+
+  .btn-reservar:disabled {
+    background: #bbb;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Panel de reservaciones activas */
+  .reservas-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .reservas-panel h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gray-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .reserva-card {
+    background: white;
+    border: 1px solid rgba(200,127,160,0.18);
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.2s;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reserva-card:hover {
+    box-shadow: 0 4px 20px rgba(200,127,160,0.12);
+  }
+
+  .reserva-info {
+    flex: 1;
+  }
+
+  .reserva-nombre {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .reserva-detalles {
+    font-size: 0.8rem;
+    color: var(--gray-mid);
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .reserva-detalles span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .btn-cancelar {
+    background: transparent;
+    border: 1px solid rgba(200,127,160,0.35);
+    color: var(--pink-deep);
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .btn-cancelar:hover {
+    background: #fee2ee;
+    border-color: var(--pink-deep);
+  }
+
+  .sin-reservas {
+    color: var(--gray-mid);
+    font-size: 0.88rem;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+    border: 1px dashed rgba(200,127,160,0.25);
+    border-radius: 1rem;
+  }
+
+  .reserva-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--pink-pale);
+    color: var(--pink-deep);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    border: 1px solid rgba(200,127,160,0.25);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  /* Toast de notificación */
+  .toast {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    z-index: 999;
+    background: var(--gray-dark);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.8rem;
+    font-size: 0.85rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-width: 320px;
+  }
+
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .toast.success { border-left: 4px solid #25D366; }
+  .toast.cancel { border-left: 4px solid var(--pink-deep); }
+
+  /* Nota de WhatsApp */
+  .whatsapp-note {
+    margin-top: 1.5rem;
+    background: #f0fff4;
+    border: 1px solid #86efac;
+    border-radius: 0.8rem;
+    padding: 1rem 1.2rem;
+    font-size: 0.82rem;
+    color: #166534;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    #reservaciones { padding: 4rem 1.5rem; }
+    .reservaciones-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .horarios-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .horarios-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="logo.png" alt="Lua Uñas Salón Spa" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Lua Salón Spa</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#reservaciones">Reservar</a></li>
+    <li><a href="#info">Horarios</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#opiniones">Opiniones</a></li>
+    <li><a href="#reservar">Contacto</a></li>
+    <li><a href="#reservaciones" class="nav-cta">Reservar cita</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Monterrey · Plaza Altezza</p>
+    <h1 class="hero-title">
+      Tu cuidado<br>
+      es una <em>inversión</em>
+    </h1>
+    <p class="hero-subtitle">
+      Uñas, manicure, pedicure, faciales, masajes y más. 
+      Un espacio dedicado a tu bienestar en el corazón de Cumbres.
+    </p>
+    <div class="hero-actions">
+      <a href="#reservaciones" class="btn-primary">Reservar cita</a>
+      <a href="#servicios" class="btn-ghost">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual-bg"></div>
+    <img src="logo.png" alt="Lua Uñas Salón Spa" class="hero-logo-large" onerror="this.src=''">
+    <div class="hero-badge">
+      <div>
+        <div class="badge-score">4.6</div>
+        <div class="badge-stars">★★★★★</div>
+      </div>
+      <div class="badge-text">
+        Calificación en<br>Google Maps<br>
+        <strong style="color:#4a4a4a; font-size:0.7rem;">15 reseñas</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVACIONES -->
+<section id="reservaciones">
+  <p class="section-label">Agenda tu visita</p>
+  <h2 class="section-title">Reserva tu <em>cita</em></h2>
+
+  <div class="reservaciones-grid">
+    <!-- FORMULARIO -->
+    <div class="reserva-form-box">
+      <h3>Nueva reservación</h3>
+      <p class="form-sub">Lunes a Viernes 9am–3pm · Sábado 9am–4pm · 1 hora por cita</p>
+
+      <div class="form-field">
+        <label>Nombre completo</label>
+        <input type="text" id="inp-nombre" placeholder="Ej. María García" maxlength="60">
+      </div>
+
+      <div class="form-field">
+        <label>Teléfono</label>
+        <input type="tel" id="inp-telefono" placeholder="81 1234 5678" maxlength="20">
+      </div>
+
+      <div class="form-field">
+        <label>Servicio</label>
+        <div class="select-wrapper">
+          <select id="inp-servicio">
+            <option value="">— Selecciona un servicio —</option>
+            <option>💅 Manicure</option>
+            <option>🦶 Pedicure Spa</option>
+            <option>✨ Shellac &amp; Gelish</option>
+            <option>💎 Uñas de Resina</option>
+            <option>🎨 Diseño de Uñas</option>
+            <option>🧘‍♀️ Masajes &amp; Reflexología</option>
+            <option>🌿 Facial</option>
+            <option>🌸 Depilación</option>
+            <option>💇‍♀️ Cabello</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Fecha</label>
+        <input type="date" id="inp-fecha">
+      </div>
+
+      <div class="form-field" id="campo-hora" style="display:none;">
+        <label>Horario disponible</label>
+        <div class="horarios-grid" id="horarios-grid"></div>
+        <input type="hidden" id="inp-hora">
+      </div>
+
+      <div class="whatsapp-note" id="wa-note" style="display:none;">
+        📲 Al confirmar, se abrirá WhatsApp con tu reservación lista para enviar al salón. Esto asegura que el equipo quede notificado de inmediato.
+      </div>
+
+      <button class="btn-reservar" id="btn-reservar" disabled onclick="hacerReservacion()">
+        Confirmar reservación
+      </button>
+    </div>
+
+    <!-- PANEL DE RESERVAS ACTIVAS -->
+    <div class="reservas-panel">
+      <div>
+        <span class="reserva-badge">📋 Mis reservaciones</span>
+        <h3>Citas agendadas</h3>
+        <p style="font-size:0.82rem; color:var(--gray-mid); font-weight:300; margin-bottom:1.2rem;">
+          Tus reservaciones guardadas en este dispositivo. Para cancelar, el salón también recibirá un aviso por WhatsApp.
+        </p>
+      </div>
+      <div id="lista-reservas">
+        <div class="sin-reservas">Aún no tienes citas agendadas 🌸</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO / HOURS -->
+<section id="info">
+  <div>
+    <p class="section-label">Visítanos</p>
+    <h2 class="section-title"><em>Horarios</em> y ubicación</h2>
+    <table class="hours-table">
+      <tr><td>Lunes</td><td>9:00 a.m. – 3:00 p.m.</td></tr>
+      <tr><td>Martes</td><td>9:00 a.m. – 3:00 p.m.</td></tr>
+      <tr><td>Miércoles</td><td>9:00 a.m. – 3:00 p.m.</td></tr>
+      <tr><td>Jueves</td><td>9:00 a.m. – 3:00 p.m.</td></tr>
+      <tr><td>Viernes</td><td>9:00 a.m. – 3:00 p.m.</td></tr>
+      <tr><td>Sábado</td><td>9:00 a.m. – 4:00 p.m.</td></tr>
+      <tr class="closed"><td>Domingo</td><td>Cerrado</td></tr>
+    </table>
+  </div>
+
+  <div>
+    <p class="section-label">Contáctanos</p>
+    <h2 class="section-title">Siempre <em>disponibles</em></h2>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-detail">
+          <strong>Dirección</strong>
+          Av Paseo de los Leones 2020, Cumbres 3er Sector<br>
+          Plaza Altezza, Piso 0 · Monterrey, N.L. 64610
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-detail">
+          <strong>Teléfono / WhatsApp</strong>
+          <a href="tel:+528183707099">81 8370 7099</a><br>
+          <a href="https://wa.me/528111629142" target="_blank">📲 81 1162 9142 (WhatsApp reservas)</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-detail">
+          <strong>Correo electrónico</strong>
+          <a href="mailto:luaspamonterrey@hotmail.com">luaspamonterrey@hotmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div class="contact-detail">
+          <strong>Redes sociales</strong>
+          <a href="https://www.facebook.com/p/LUA-SPA-100063832742130/" target="_blank">Facebook: LUA SPA</a><br>
+          <a href="https://www.instagram.com/lua_spa/" target="_blank">Instagram: @lua_spa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<div class="quote-strip">
+  <blockquote>
+    "El mejor servicio personalizado para el cuidado de uñas y pedicure"
+  </blockquote>
+  <cite>— Sylvia Vázquez · Google Reviews</cite>
+</div>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="services-header">
+    <div>
+      <p class="section-label">Lo que ofrecemos</p>
+      <h2 class="section-title">Nuestros <em>servicios</em></h2>
+    </div>
+    <p style="font-size:0.9rem; font-weight:300; line-height:1.8; color:#7a7a7a;">
+      Desde el cuidado clásico de uñas hasta tratamientos completos de relajación. 
+      Cada servicio diseñado con dedicación y profesionalismo.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">💅</span>
+      <p class="service-name">Manicure</p>
+      <p class="service-desc">Manicure clásico, social y de spa. Cuidado profesional para tus manos.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🦶</span>
+      <p class="service-name">Pedicure Spa</p>
+      <p class="service-desc">Sillones relajantes con baño de spa para un pedicure de lujo.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✨</span>
+      <p class="service-name">Shellac & Gelish</p>
+      <p class="service-desc">Aplicación de esmalte semipermanente de larga duración.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💎</span>
+      <p class="service-name">Uñas de Resina</p>
+      <p class="service-desc">Extensiones de resina con diseños personalizados y acabados impecables.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <p class="service-name">Diseño de Uñas</p>
+      <p class="service-desc">Nail art, decoraciones y diseños únicos para tu estilo personal.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🧘‍♀️</span>
+      <p class="service-name">Masajes & Reflexología</p>
+      <p class="service-desc">Masajes de relajación con reflexología de pies para tu bienestar total.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌿</span>
+      <p class="service-name">Faciales</p>
+      <p class="service-desc">Tratamientos faciales para el cuidado y luminosidad de tu piel.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌸</span>
+      <p class="service-name">Depilación</p>
+      <p class="service-desc">Servicios de depilación con técnicas suaves y efectivas.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💇‍♀️</span>
+      <p class="service-name">Cabello</p>
+      <p class="service-desc">Planchados y secados para completar tu look con estilo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="opiniones">
+  <p class="section-label">Nuestros clientes opinan</p>
+  <h2 class="section-title">Lo que dicen de <em>nosotras</em></h2>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"El mejor servicio personalizado para el cuidado de uñas y pedicure."</p>
+      <p class="review-author">Sylvia Vázquez · Local Guide</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Excelente servicio, super salí muy contenta. Lo recomiendo totalmente."</p>
+      <p class="review-author">Claudia Salinas · Google Reviews</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Excelente ubicación y calidad de servicio. 100% recomendable para todo el mundo."</p>
+      <p class="review-author">Cliente verificado · Google Maps</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Muy cuidadosos con las medidas. Trato muy respetuoso y profesional. Cuentan con sillones de masaje para pedicure."</p>
+      <p class="review-author">Lizett González · Local Guide</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Cuentan con gelish, acrílico y arreglo social de cabello. Precios muy accesibles para la calidad del servicio."</p>
+      <p class="review-author">Reseña de Google Maps</p>
+    </div>
+    <div class="review-card" style="background: var(--pink-pale); border-color: rgba(200,127,160,0.25);">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--pink-deep);display:flex;align-items:center;justify-content:center;color:white;font-family:'Cormorant Garamond',serif;font-size:1.3rem;">4.6</div>
+        <div>
+          <div class="review-stars" style="font-size:0.75rem;">★★★★★</div>
+          <p style="font-size:0.72rem; color:#7a7a7a; margin-top:2px;">15 reseñas en Google</p>
+        </div>
+      </div>
+      <p class="review-text" style="font-size:0.9rem;">"Cuidar de ti misma no es un gasto, es una inversión."</p>
+      <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x866296686da57507:0xc160c9b7d967bbdc" target="_blank" class="btn-ghost" style="font-size:0.72rem; margin-top:0.5rem; display:inline-block;">Ver en Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div id="ubicacion">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.0!2d-100.3889!3d25.7684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866296686da57507%3A0xc160c9b7d967bbdc!2sLua%20Spa!5e0!3m2!1ses!2smx!4v1"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación Lua Spa Monterrey">
+  </iframe>
+</div>
+
+<!-- CTA / RESERVAR -->
+<section id="reservar">
+  <p class="section-label">¿Lista para consentirte?</p>
+  <h2 class="section-title">Reserva tu cita <em>hoy</em></h2>
+  <p>Escríbenos por WhatsApp o síguenos en redes. Atendemos con gusto.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/528111629142?text=Hola!%20Quisiera%20reservar%20una%20cita%20en%20Lua%20Spa" target="_blank" class="btn-whatsapp">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp: 81 1162 9142
+    </a>
+    <a href="https://www.instagram.com/lua_spa/" target="_blank" class="btn-light">Instagram @lua_spa</a>
+    <a href="https://www.facebook.com/p/LUA-SPA-100063832742130/" target="_blank" class="btn-light">Facebook</a>
+  </div>
+  <div class="social-links">
+    <a href="mailto:luaspamonterrey@hotmail.com" class="social-link">✉ luaspamonterrey@hotmail.com</a>
+    <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x866296686da57507:0xc160c9b7d967bbdc" target="_blank" class="social-link">📍 Ver en Google Maps</a>
+  </div>
+</section>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Lua Uñas Salón Spa</div>
+  <div class="footer-tagline">Cuidar de ti misma no es un gasto, es una inversión</div>
+  <div class="footer-copy">© 2026 · Plaza Altezza, Monterrey, N.L.</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/528111629142?text=Hola!%20Quisiera%20reservar%20una%20cita%20en%20Lua%20Spa" target="_blank" class="floating-wa" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ─── CONFIGURACIÓN DE HORARIOS ───────────────────────────────────────────────
+const HORAS_LV  = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00'];      // 9am-3pm (última cita 2pm, termina 3pm)
+const HORAS_SAB = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00']; // 9am-4pm (última 3pm)
+
+// ─── ESTADO ─────────────────────────────────────────────────────────────────
+let reservaciones = JSON.parse(localStorage.getItem('lua_reservaciones') || '[]');
+let horaSeleccionada = null;
+
+// ─── HELPERS ────────────────────────────────────────────────────────────────
+function guardar() {
+  localStorage.setItem('lua_reservaciones', JSON.stringify(reservaciones));
+}
+
+function fmt12(h24) {
+  const [h, m] = h24.split(':');
+  const hh = parseInt(h);
+  const suf = hh < 12 ? 'am' : 'pm';
+  const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+  return `${h12}:${m} ${suf}`;
+}
+
+function nombreDia(fecha) {
+  const d = new Date(fecha + 'T12:00:00');
+  return d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function diaSemana(fecha) {
+  const d = new Date(fecha + 'T12:00:00');
+  return d.getDay(); // 0=dom, 1=lun ... 6=sab
+}
+
+function esValida(fecha) {
+  const dia = diaSemana(fecha);
+  return dia >= 1 && dia <= 6; // lunes a sábado
+}
+
+function horasParaDia(fecha) {
+  const dia = diaSemana(fecha);
+  return dia === 6 ? HORAS_SAB : HORAS_LV;
+}
+
+function horasOcupadas(fecha) {
+  return reservaciones
+    .filter(r => r.fecha === fecha)
+    .map(r => r.hora);
+}
+
+function showToast(msg, tipo = 'success') {
+  const t = document.getElementById('toast');
+  t.innerHTML = (tipo === 'success' ? '✅' : '🚫') + ' ' + msg;
+  t.className = 'toast ' + tipo + ' show';
+  setTimeout(() => { t.className = 'toast ' + tipo; }, 3500);
+}
+
+// ─── CONSTRUIR GRILLA DE HORARIOS ────────────────────────────────────────────
+function renderHorarios(fecha) {
+  const grid = document.getElementById('horarios-grid');
+  const horas = horasParaDia(fecha);
+  const ocupadas = horasOcupadas(fecha);
+  horaSeleccionada = null;
+  document.getElementById('inp-hora').value = '';
+  actualizarBoton();
+
+  grid.innerHTML = horas.map(h => {
+    const ocup = ocupadas.includes(h);
+    return `<button
+      class="hora-btn${ocup ? ' ocupada' : ''}"
+      onclick="${ocup ? '' : `seleccionarHora('${h}', this)`}"
+      ${ocup ? 'disabled' : ''}
+      title="${ocup ? 'No disponible' : 'Seleccionar ' + fmt12(h)}"
+    >${fmt12(h)}${ocup ? '<br><small style="font-size:0.6rem;">Ocupado</small>' : ''}</button>`;
+  }).join('');
+}
+
+function seleccionarHora(hora, el) {
+  document.querySelectorAll('.hora-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  horaSeleccionada = hora;
+  document.getElementById('inp-hora').value = hora;
+  actualizarBoton();
+}
+
+// ─── VALIDAR FECHAS EN EL INPUT ──────────────────────────────────────────────
+const inpFecha = document.getElementById('inp-fecha');
+
+// Fecha mínima: hoy
+const hoy = new Date();
+const yyyy = hoy.getFullYear();
+const mm   = String(hoy.getMonth() + 1).padStart(2, '0');
+const dd   = String(hoy.getDate()).padStart(2, '0');
+inpFecha.min = `${yyyy}-${mm}-${dd}`;
+
+inpFecha.addEventListener('change', () => {
+  const f = inpFecha.value;
+  const campoHora = document.getElementById('campo-hora');
+  const waNota = document.getElementById('wa-note');
+
+  if (!f) {
+    campoHora.style.display = 'none';
+    waNota.style.display = 'none';
+    return;
+  }
+
+  if (!esValida(f)) {
+    campoHora.style.display = 'none';
+    waNota.style.display = 'none';
+    showToast('El domingo no atendemos. Elige otro día 😊', 'cancel');
+    inpFecha.value = '';
+    return;
+  }
+
+  campoHora.style.display = 'block';
+  waNota.style.display = 'flex';
+  renderHorarios(f);
+});
+
+// ─── HABILITAR BOTÓN ─────────────────────────────────────────────────────────
+function actualizarBoton() {
+  const ok =
+    document.getElementById('inp-nombre').value.trim() &&
+    document.getElementById('inp-telefono').value.trim() &&
+    document.getElementById('inp-servicio').value &&
+    document.getElementById('inp-fecha').value &&
+    horaSeleccionada;
+  document.getElementById('btn-reservar').disabled = !ok;
+}
+
+['inp-nombre','inp-telefono','inp-servicio','inp-fecha'].forEach(id => {
+  document.getElementById(id).addEventListener('input', actualizarBoton);
+  document.getElementById(id).addEventListener('change', actualizarBoton);
+});
+
+// ─── HACER RESERVACIÓN ───────────────────────────────────────────────────────
+function hacerReservacion() {
+  const nombre   = document.getElementById('inp-nombre').value.trim();
+  const telefono = document.getElementById('inp-telefono').value.trim();
+  const servicio = document.getElementById('inp-servicio').value;
+  const fecha    = document.getElementById('inp-fecha').value;
+  const hora     = horaSeleccionada;
+
+  if (!nombre || !telefono || !servicio || !fecha || !hora) {
+    showToast('Completa todos los campos', 'cancel');
+    return;
+  }
+
+  // Verificar que no esté ocupado (doble check)
+  if (horasOcupadas(fecha).includes(hora)) {
+    showToast('Ese horario ya fue reservado. Elige otro.', 'cancel');
+    renderHorarios(fecha);
+    return;
+  }
+
+  const id = Date.now().toString();
+  const reserva = { id, nombre, telefono, servicio, fecha, hora };
+  reservaciones.push(reserva);
+  guardar();
+  renderReservas();
+
+  // Resetear formulario
+  document.getElementById('inp-nombre').value = '';
+  document.getElementById('inp-telefono').value = '';
+  document.getElementById('inp-servicio').value = '';
+  document.getElementById('inp-fecha').value = '';
+  document.getElementById('campo-hora').style.display = 'none';
+  document.getElementById('wa-note').style.display = 'none';
+  horaSeleccionada = null;
+  actualizarBoton();
+
+  // Construir mensaje de WhatsApp para notificar al local
+  const msg = encodeURIComponent(
+    `🌸 *Nueva Reservación – Lua Salón Spa*\n\n` +
+    `👤 Nombre: ${nombre}\n` +
+    `📞 Teléfono: ${telefono}\n` +
+    `💅 Servicio: ${servicio}\n` +
+    `📅 Fecha: ${nombreDia(fecha)}\n` +
+    `⏰ Hora: ${fmt12(hora)}\n\n` +
+    `_Reservación realizada desde el sitio web._`
+  );
+
+  showToast(`¡Cita agendada! Abriendo WhatsApp para confirmar con el salón... 🌸`);
+  setTimeout(() => {
+    window.open(`https://wa.me/528111629142?text=${msg}`, '_blank');
+  }, 800);
+}
+
+// ─── CANCELAR RESERVACIÓN ────────────────────────────────────────────────────
+function cancelarReservacion(id) {
+  const r = reservaciones.find(x => x.id === id);
+  if (!r) return;
+
+  if (!confirm(`¿Cancelar la cita de ${r.nombre} el ${nombreDia(r.fecha)} a las ${fmt12(r.hora)}?`)) return;
+
+  reservaciones = reservaciones.filter(x => x.id !== id);
+  guardar();
+  renderReservas();
+
+  // Si el día cancelado está activo en el form, actualizar grid
+  const fechaActiva = document.getElementById('inp-fecha').value;
+  if (fechaActiva === r.fecha) renderHorarios(r.fecha);
+
+  // Mensaje de cancelación por WhatsApp
+  const msg = encodeURIComponent(
+    `❌ *Cancelación de Cita – Lua Salón Spa*\n\n` +
+    `👤 Nombre: ${r.nombre}\n` +
+    `📞 Teléfono: ${r.telefono}\n` +
+    `💅 Servicio: ${r.servicio}\n` +
+    `📅 Fecha: ${nombreDia(r.fecha)}\n` +
+    `⏰ Hora: ${fmt12(r.hora)}\n\n` +
+    `_Cita cancelada desde el sitio web._`
+  );
+
+  showToast('Cita cancelada. Avisando al salón por WhatsApp...', 'cancel');
+  setTimeout(() => {
+    window.open(`https://wa.me/528111629142?text=${msg}`, '_blank');
+  }, 800);
+}
+
+// ─── RENDER LISTA DE RESERVAS ────────────────────────────────────────────────
+function renderReservas() {
+  const lista = document.getElementById('lista-reservas');
+  if (!reservaciones.length) {
+    lista.innerHTML = '<div class="sin-reservas">Aún no tienes citas agendadas 🌸</div>';
+    return;
+  }
+
+  // Ordenar por fecha y hora
+  const sorted = [...reservaciones].sort((a, b) =>
+    (a.fecha + a.hora).localeCompare(b.fecha + b.hora)
+  );
+
+  lista.innerHTML = sorted.map(r => `
+    <div class="reserva-card">
+      <div class="reserva-info">
+        <div class="reserva-nombre">${r.nombre}</div>
+        <div class="reserva-detalles">
+          <span>📅 ${nombreDia(r.fecha)}</span>
+          <span>⏰ ${fmt12(r.hora)}</span>
+          <span>${r.servicio}</span>
+          <span>📞 ${r.telefono}</span>
+        </div>
+      </div>
+      <button class="btn-cancelar" onclick="cancelarReservacion('${r.id}')">Cancelar</button>
+    </div>
+  `).join('');
+}
+
+// Inicializar lista al cargar
+renderReservas();
+</script>
+
+</body>
+</html>
